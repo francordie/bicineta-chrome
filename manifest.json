@@ -1,0 +1,37 @@
+  {
+    "name": "Bicineta Ext",
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "Get FB events info",
+    // "icons": {
+    //   "128": "icon_16.png",
+    //   "128": "icon_32.png",
+    //   "128": "icon_48.png",
+    //   "128": "icon_128.png"
+    // },
+    "background": {
+      "persistent": false,
+      "scripts": ["background.js"]
+    },
+    "permissions": ["activeTab", "declarativeContent", "storage"],
+    "page_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/bicineta-logo.png",
+        "32": "images/bicineta-logo.png",
+        "48": "images/bicineta-logo.png",
+        "128": "images/bicineta-logo.png"
+      }
+    },
+    "icons": {
+      "16": "images/bicineta-logo.png",
+      "32": "images/bicineta-logo.png",
+      "48": "images/bicineta-logo.png",
+      "128": "images/bicineta-logo.png"
+    }
+    // "permissions": ["https://*.google.com/", "activeTab"],
+    // "browser_action": {
+    //   "default_icon": "icon_16.png",
+    //   "default_popup": "popup.html"
+    // }
+  }
