@@ -1,26 +1,8 @@
-let changeColor = document.getElementById('change-color');
-let addLink = document.getElementById('add-link')
-let addEvent = document.getElementById('add-event')
-let title = document.getElementById('title')
+// TODOO: https://www.facebook.com/events/837766916598087/
 
-chrome.storage.sync.get('color', function(data) {
-  changeColor.style.backgroundColor = data.color;
-  changeColor.setAttribute('value', data.color);
-});
-
-changeColor.onclick = function(element) {
-  let color = element.target.value;
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.executeScript(
-        tabs[0].id,
-        {
-					code: 'document.body.style.backgroundColor = "' + color + '";' +
-					'msg = "Current tab title changed from [" + document.title;' +
-					'document.title = "Bicineta";' +
-					'alert(msg + "] to [" + document.title + "]");'
-				});
-  });
-};
+let addLink = document.getElementById('add-link');
+let addEvent = document.getElementById('add-event');
+let title = document.getElementById('title');
 
 addLink.onclick = function(element) {
 	addLink.innertHTML = 'Sending ...';
@@ -64,14 +46,32 @@ addEvent.onclick = function(element) {
 			'date 				= document.getElementById("title_subtitle").childNodes[0].getAttribute("title");' +
 			// '// 2019-07-13T06:00:00-07:00 to 2019-07-14T18:00:00-07:00' +
 			'full_date 	= document.querySelector("._2ycp._5xhk").getAttribute("content");' +
-			'description = document.querySelectorAll("[data-testid=event-permalink-details]")[0].childNodes[0].innerText;' +
+			'description = document.querySelectorAll("[data-testid=event-permalink-details]");' +
+			'if (description.length > 0) {' +
+			'	description = description[0].childNodes[0].innerText;' +
+			'	if (description.length > 1500)' +
+			'		description = description.substring(0, 1500) + " ...";' +
+			'	}' +
+			//
 			'cover 			= document.querySelector("._3kwh");' +
-			'if (cover)' +
-			'	cover = cover.querySelector("img").getAttribute("src");' +
+			'if (cover) {' +
+			'	cover = cover.querySelector("img");' +
+			'	if (cover) ' +
+			'		cover = cover.getAttribute("src");' +
+			'}' +
 			// '//' +
 			'place = document.querySelector("a#u_0_19._5xhk");' +
+			'if (!place)' +
+			'		place = document.querySelector("#u_0_1a._5xhk");' +
+			'if (!place)' +
+			'		place = document.querySelector("#u_0_16._5xhk");' +
 			'if (place)' +
 			'	place = place.innerHTML;' +
+			'if (!place)' +
+			' if (document.querySelectorAll("._5xhk").length > 2)' +
+			'		place = document.querySelectorAll("._5xhk")[2].textContent;' +
+			'	else' +
+			'		place = document.querySelectorAll("._5xhk")[1].textContent;' +
 			// '//' +
 			'org = document.querySelectorAll("[data-testid=event_permalink_feature_line]")[0].querySelector("a");' +
 			'if (org) {' +
