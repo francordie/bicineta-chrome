@@ -71,7 +71,8 @@ addEvent.onclick = function(element) {
 			' if (document.querySelectorAll("._5xhk").length > 2)' +
 			'		place = document.querySelectorAll("._5xhk")[2].textContent;' +
 			'	else' +
-			'		place = document.querySelectorAll("._5xhk")[1].textContent;' +
+			'		if (document.querySelectorAll("._5xhk")[1] != undefined)' +
+			'			place = document.querySelectorAll("._5xhk")[1].textContent;' +
 			// '//' +
 			'org = document.querySelectorAll("[data-testid=event_permalink_feature_line]")[0].querySelector("a");' +
 			'if (org) {' +
