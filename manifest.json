@@ -13,6 +13,12 @@
       "persistent": false,
       "scripts": ["background.js"]
     },
+    "content_scripts": [
+      {
+        "matches": ["https://*.facebook.com/*"],
+        "js": ["contentScript.js"]
+      }
+    ],
     "permissions": ["<all_urls>", "activeTab", "declarativeContent", "storage"],
     // "page_action": {
     //   "default_popup": "popup.html",
