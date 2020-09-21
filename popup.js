@@ -8,7 +8,7 @@ let addLink = document.getElementById('add-link');
 let addEventFacebook = document.getElementById('add-event-facebook');
 let addEventStrava = document.getElementById('add-event-strava');
 let addEventInstagram = document.getElementById('add-event-instagram');
-let goToBicineta = document.getElementById("go-to-bicineta");
+let titleImg = document.getElementById("title");
 
 let linkRedirectUrl 	= host + '/noticias/ingresar?extensionId=' + extensionId + '&url=';
 let eventRedirectUrl 	= host + '/eventos/ingresar?extensionId='  + extensionId + '&event=';
@@ -208,6 +208,6 @@ addEventInstagram.onclick = function(element) {
   });
 };
 
-goToBicineta.onclick = function(element) {
+titleImg.onclick = function(element) {
 	chrome.tabs.create({url: 'https://www.bicineta.cl'})
 }

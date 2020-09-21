@@ -4,25 +4,30 @@
     <style>
       button {
         height: 30px;
-        width: 100%;
+        width: 100px;
         background-color: #7FC77F;
         color: white;
+        border: 1px solid white;
+        cursor: pointer;
+      }
+      #title {
+        text-align: center;
+
       }
       img {
-        height: 20px;
-        margin-bottom: 10px;
+        margin-left: 15px;
+        max-width: 70px;
       }
     </style>
   </head>
   <body>
     <a id='title' href="https://www.bicineta.cl">
-      <img src="images/bicineta-txt.png">
+      <img src="images/bicineta-logo.new.png">
     </a>
     <button id="add-link">Add to links</button>
     <button id="add-event-facebook">FB Event</button>
     <button id="add-event-strava">Strava Event</button>
     <button id="add-event-instagram">IG Event</button>
-    <button id="go-to-bicineta">Go to Bicineta</button>
     <script src="popup.js"></script>
   </body>
 </html>
